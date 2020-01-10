@@ -43,17 +43,13 @@ public class GetPage {
     // arrange end
 
     @Test
-    // act
+    // act + assert
     public void openTestPage() {
         driver.get(baseUrl + "lessons/java-qa-engineer/");
-
-    }
-
-    @Test
-    // assert
-    public void assertTestPage() {
-        WebElement courseTitle = driver.findElement(By.tagName("h1"));
+        WebElement courseTitle = driver.findElement(By.cssSelector("body h1"));
         String getTitleByText = courseTitle.getText();
         Assert.assertEquals("Java QA Automation Engineer", getTitleByText);
+
     }
+
 }
